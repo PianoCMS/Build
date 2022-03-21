@@ -1,29 +1,30 @@
 import { build, emptyDir } from "https://deno.land/x/dnt@0.20.0/mod.ts";
-let { mappings, shims, compilerOptions, packageData, entryPoints } = await import(`${Deno.cwd()}/pkg.ts`);
 
-if (entryPoints === []) {
-  entryPoints = ["./src/mod.ts"];
-}
+// deno-lint-ignore no-explicit-any
+export async function buildNPM(options: {[key: string]: any}) {
 
-export async function buildNPM() {
+  if (options.entryPoints === []) {
+    options.entryPoints = ["./src/mod.ts"];
+  }
+  
   await emptyDir("./dist-node");
 
   await build({
-    entryPoints: entryPoints,
+    entryPoints: options.entryPoints,
     outDir: "./dist-node",
-    mappings: { ...mappings },
-    shims: { ...shims },
+    mappings: { ...options.mappings },
+    shims: { ...options.shims },
     test: true,
     compilerOptions: {
       importHelpers: true,
       target: "ES2021",
-      ...compilerOptions
+      ...options.compilerOptions
     },
     package: {
       devDependencies: {
         "@types/node": "^16",
       },
-      ...packageData,
+      ...options.packageData,
     },
   });
 
