@@ -19,5 +19,5 @@
 [issues-shield]: https://img.shields.io/github/issues/pianocms/build.svg?style=for-the-badge
 [issues-url]: https://github.com/pianocms/build/issues
 [license-shield]: https://img.shields.io/github/license/pianocms/build.svg?style=for-the-badge
-[license-url]: https://github.com/pianocms/build/blob/master/LICENSE.md
+[license-url]: https://github.com/pianocms/build/blob/main/LICENSE.md
 [typescript-image]: https://img.shields.io/badge/Typescript-294E80.svg?style=for-the-badge&logo=typescript
