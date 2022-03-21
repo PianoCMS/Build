@@ -23,13 +23,16 @@ export async function pack(packageData: {[key:string]: any}, pkgRoot: string) {
             case 'esm':
                 copySync(`./dist-node/esm`, `./packages/dist-esm/lib`);
                 copySync(`./dist-node/types`, `./packages/dist-esm/types`);
+                copySync(`./dist-node/pkg.js`, `./packages/dist-esm/pkg.js`);
                 break;
             case 'cjs':
                 copySync(`./dist-node/script`, `./packages/dist-cjs/lib`);
                 copySync(`./dist-node/types`, `./packages/dist-cjs/types`);
+                copySync(`./dist-node/pkg.js`, `./packages/dist-cjs/pkg.js`);
                 break;
             case 'deno':
-                copySync(`./`, `./packages/dist-deno`);
+                copySync(`./src`, `./packages/dist-deno/lib`);
+                copySync(`./dist-node/pkg.ts`, `./packages/dist-deno/pkg.ts`);
                 break;
         }
 
