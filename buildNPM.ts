@@ -30,5 +30,5 @@ export async function buildNPM(options: {[key: string]: any}) {
 
   await Deno.copyFile("LICENSE.md", "dist-node/LICENSE.md");
   await Deno.copyFile("README.md", "dist-node/README.md");
-  await Deno.copyFile("install.json", "dist-node/install.json");
+  await Deno.copyFile("pkg.ts", "dist-node/pkg.js");
 }
